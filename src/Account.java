@@ -3,6 +3,9 @@ import lombok.experimental.SuperBuilder;
 
 import javax.management.ConstructorParameters;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -40,5 +43,17 @@ public class Account {
         if(result)
             beneficialAccount.deposit(amount);
         return result;
+    }
+    public void getAccount(){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("RIB = ");
+        RIB=sc.next();
+        System.out.print("sold = ");
+        sold=sc.nextDouble();
+        DateTimeFormatter format= DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.print("creation Date (yyy-MM-dd = ");
+        creationDate=LocalDate.parse(sc.next(),format);
+        //System.out.print("status = ");
+        //status=AccountStatus.valueOf(sc.next());
     }
 }

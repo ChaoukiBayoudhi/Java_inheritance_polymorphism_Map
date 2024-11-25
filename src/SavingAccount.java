@@ -2,6 +2,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 @Getter
 @Setter
@@ -30,5 +31,12 @@ public class SavingAccount extends Account{
             return false;
         sold-=amount;
         return true;
+    }
+    @Override
+    public void getAccount(){
+        super.getAccount();
+        Scanner sc=new Scanner(System.in);
+        System.out.print("interest rate = ");
+        interestRate= sc.nextDouble();
     }
 }
