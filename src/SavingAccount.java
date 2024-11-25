@@ -21,4 +21,14 @@ public class SavingAccount extends Account{
         super(RIB, sold);
         this.interestRate = interestRate;
     }
+    public double getInterest(){
+        return sold*(1+interestRate);
+    }
+    @Override
+    public boolean withdraw(double amount){
+        if (amount<=0 ||sold-amount<SOLD_MIN)
+            return false;
+        sold-=amount;
+        return true;
+    }
 }

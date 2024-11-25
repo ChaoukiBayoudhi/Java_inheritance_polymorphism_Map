@@ -11,7 +11,7 @@ public class CurrentAccount extends  Account{
 
     @Override
     public boolean withdraw(double amount){
-        if(amount<=0 || amount>Math.abs(sold+SOLD_MIN))
+        if(amount<=0 || sold-amount<SOLD_MIN)
             return false;
         sold -= amount;
         return true;

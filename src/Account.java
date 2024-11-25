@@ -35,4 +35,10 @@ public class Account {
         sold -= amount;
         return true;
     }
+    public boolean transfer(Account beneficialAccount, double amount) {
+        boolean result=this.withdraw(amount);
+        if(result)
+            beneficialAccount.deposit(amount);
+        return result;
+    }
 }
